@@ -32,13 +32,13 @@ const EventEmitter = require('events');
 const emitter = new EventEmitter();
 
 //Create an event handler:
-var myEventHandler = function () {
-  console.log('I hear a scream!');
+const myInfo = function (e) {
+  console.log(`My name is ${e.name}`);
 }
 
 //Assign the event handler to an event:
-emitter.on('scream', myEventHandler);
+emitter.on('info', myInfo);
 
-//Fire the 'scream' event:
-emitter.emit('scream');
+//Fire the 'info' event:
+emitter.emit('info',{name: 'Jubayer'});
 
