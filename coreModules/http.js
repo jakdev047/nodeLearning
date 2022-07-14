@@ -1,16 +1,4 @@
-
-/*
-    ======================
-        HTTP Module
-    ======================
-*/
-
-// const options = {
-//   hostname: 'abc.com',
-//   port: 8000,
-//   path: '/about',
-//   method: 'GET',
-// };
+/* eslint-disable comma-dangle */
 
 // dependencies
 const http = require('http');
