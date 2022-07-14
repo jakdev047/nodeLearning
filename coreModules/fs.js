@@ -14,3 +14,13 @@ fs.readFile('./files/input.txt', (err, data) => {
 });
 
 console.log('This non async code.');
+
+// readStream
+const readStream = fs.createReadStream('./files/bigData.txt');
+const writeStream = fs.createWriteStream('./files/output.txt');
+// readStream.on('data', (chunk) => {
+//     writeStream.write(chunk);
+// });
+
+// pipe
+readStream.pipe(writeStream);

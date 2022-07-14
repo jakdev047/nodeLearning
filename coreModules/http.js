@@ -4,7 +4,7 @@
 const http = require('http');
 
 // PORT
-const PORT = 8000;
+const PORT = 8080;
 
 // server create
 const server = http.createServer((req, res) => {
@@ -22,6 +22,24 @@ const server = http.createServer((req, res) => {
             })
         );
         res.end();
+    } else if (req.url === '/form' && req.method === 'GET') {
+        res.write('<html><head><title>Form</title></head>');
+        res.write(
+            '<body><form method="post" action="/big-data"><input name="message"/></form></body>'
+        );
+        res.end();
+    } else if (req.url === '/big-data' && req.method === 'POST') {
+        const body = [];
+        req.on('data', (chunk) => {
+            body.push(chunk);
+        });
+        req.on('end', () => {
+            console.log('Stream finished!!!');
+            const persedBody = Buffer.concat(body).toString();
+            console.log(persedBody);
+            res.write('Thank you for submitting');
+            res.end();
+        });
     } else {
         res.write(
             JSON.stringify({
