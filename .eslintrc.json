@@ -21,7 +21,8 @@
         "semi": true,
 
         // extra
-        "endOfLine": "auto"
+        "endOfLine": "auto",
+        "eol-last": ["error", "never"]
       }
     ]
   },
